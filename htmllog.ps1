@@ -4,10 +4,10 @@ Convert any csv to an html file with table.
 .DESCRIPTION
 
 .PARAMETER inputfile
-Provide a file name in current directory same as the script or full path of a file name containing a list of OCID's. The default is .\serverocids.txt
+Provide a file name in current directory same as the script or full path of the csv file.
 
 .PARAMETER Outputfile
-Provide a file name in current directory same as the script or full path of a file name containing a list of OCID's. the default is output-info.csv
+Provide a file name in current directory same as the script or full path of the output file. The default is output-info.csv
 
 .INPUTS
 The defaut input file is named serverocids.txt which can be populated with the OCI ID of the compute instance for whcih backup inforation needs to be checked.
