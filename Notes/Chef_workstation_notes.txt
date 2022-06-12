@@ -97,8 +97,13 @@ folder structure /chef-repo
 └── roles
     └── starter.rb
 
+#downloaded the recipe from supor market.
+knife supermarket download firewall_rules
+
 updated firewall rule to allow ssh.
 modified attributes and recipe.
+
+
 
 knife upload firewall_rules
 
