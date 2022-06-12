@@ -104,10 +104,12 @@ updated firewall rule to allow ssh.
 modified attributes and recipe.
 
 
-
 knife upload firewall_rules
 
 
 --boot strapping node from the work station machine.
 knife bootstrap 192.168.29.212 --ssh-user root --ssh-password Admin1234 --node-name alpha2
+
+
+
 
