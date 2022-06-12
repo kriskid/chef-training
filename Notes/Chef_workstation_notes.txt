@@ -1,0 +1,108 @@
+https://manage.chef.io
+4 machine license.
+
+install workstation on one of the machines that will be used for managing the infra : -
+in the lab we installed it on ol7-alpha1
+
+-- Install command
+yum localinstall chef-workstation-22.5.923-1.el7.x86_64.rpm
+
+folder structure /chef-repo
+.
+├── cookbooks
+│   ├── apache
+│   │   ├── chefignore
+│   │   ├── metadata.json
+│   │   ├── README.md
+│   │   ├── recipes
+│   │   │   ├── default.rb
+│   │   │   └── httpd.rb
+│   │   └── templates
+│   │       └── index.html.erb
+│   ├── chefignore
+│   ├── firewall
+│   │   ├── attributes
+│   │   │   ├── default.rb
+│   │   │   ├── firewalld.rb
+│   │   │   ├── iptables.rb
+│   │   │   ├── ufw.rb
+│   │   │   └── windows.rb
+│   │   ├── CHANGELOG.md
+│   │   ├── chefignore
+│   │   ├── libraries
+│   │   │   ├── helpers_firewalld_dbus.rb
+│   │   │   ├── helpers_firewalld.rb
+│   │   │   ├── helpers_iptables.rb
+│   │   │   ├── helpers_nftables.rb
+│   │   │   ├── helpers.rb
+│   │   │   ├── helpers_ufw.rb
+│   │   │   ├── helpers_windows.rb
+│   │   │   ├── provider_firewall_firewalld.rb
+│   │   │   ├── provider_firewall_iptables.rb
+│   │   │   ├── provider_firewall_iptables_ubuntu1404.rb
+│   │   │   ├── provider_firewall_iptables_ubuntu.rb
+│   │   │   ├── provider_firewall_rule.rb
+│   │   │   ├── provider_firewall_ufw.rb
+│   │   │   ├── provider_firewall_windows.rb
+│   │   │   ├── resource_firewall.rb
+│   │   │   └── resource_firewall_rule.rb
+│   │   ├── LICENSE
+│   │   ├── metadata.json
+│   │   ├── metadata.rb
+│   │   ├── README.md
+│   │   ├── recipes
+│   │   │   ├── default.rb
+│   │   │   └── disable_firewall.rb
+│   │   ├── resources
+│   │   │   ├── firewalld_config.rb
+│   │   │   ├── firewalld_helpers.rb
+│   │   │   ├── firewalld_icmptype.rb
+│   │   │   ├── firewalld_ipset.rb
+│   │   │   ├── firewalld_policy.rb
+│   │   │   ├── firewalld.rb
+│   │   │   ├── firewalld_service.rb
+│   │   │   ├── firewalld_zone.rb
+│   │   │   ├── nftables.rb
+│   │   │   └── nftables_rule.rb
+│   │   ├── templates
+│   │   │   └── default
+│   │   │       └── ufw
+│   │   │           └── default.erb
+│   │   └── TODO.md
+│   ├── firewall-6.0.2.tar
+│   ├── firewall_rules
+│   │   ├── attributes
+│   │   │   └── default.rb
+│   │   ├── Berksfile
+│   │   ├── chefignore
+│   │   ├── metadata.json
+│   │   ├── metadata.rb
+│   │   ├── README.md
+│   │   └── recipes
+│   │       └── default.rb
+│   ├── firewall_rules-0.2.0.tar
+│   └── starter
+│       ├── attributes
+│       │   └── default.rb
+│       ├── files
+│       │   └── default
+│       │       └── sample.txt
+│       ├── metadata.rb
+│       ├── recipes
+│       │   └── default.rb
+│       └── templates
+│           └── default
+│               └── sample.erb
+├── README.md
+└── roles
+    └── starter.rb
+
+updated firewall rule to allow ssh.
+modified attributes and recipe.
+
+knife upload firewall_rules
+
+
+--boot strapping node from the work station machine.
+knife bootstrap 192.168.29.212 --ssh-user root --ssh-password Admin1234 --node-name alpha2
+
