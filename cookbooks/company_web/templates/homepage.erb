@@ -1,0 +1,10 @@
+<html>
+  <body>
+    <h1> welcome to <%= node['company_web']['company_name'] %></h1>
+    <h2>Platform : <%= node['platform'] %></h2>
+    <h2>Timezone of server: <%= node['time']['timezone'] %></h2>
+	<h2>Server OS: <%= node['os'] %></h2>
+	<h2>Server ip: <%= node['ipaddress'] %></h2>
+    <h2> Also: 20 multiplied by 50 = <%= 20 * 50 %> </h2>
+      </body>
+</html>
